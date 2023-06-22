@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('checkout'){
             steps {
-                git branch: 'master', url: 'https://github.com/sivaramap/terraform-gce.git'
+                git branch: 'master', url: 'hhttps://github.com/psivaramps/gce-demo.git'
             }
         }
       
