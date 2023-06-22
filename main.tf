@@ -14,7 +14,7 @@ resource "google_compute_instance" "terraform-gce" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "ubuntu-2210-kinetic-arm64-v20230615"
     }
   }
 
