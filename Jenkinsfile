@@ -1,6 +1,8 @@
 pipeline {
     agent any
-     
+environment {
+    SVC_ACCOUNT_KEY = credentials('dev-auth')
+  }
     stages {
         stage ('checkout'){
             steps {
