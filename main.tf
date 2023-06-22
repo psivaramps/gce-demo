@@ -25,7 +25,7 @@ resource "google_compute_instance" "terraform-gce" {
     sudo service apache2 start 
     sudo update-rc.d apache2 enable
     echo "Hello World" > /var/www/html/index.html
-    echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html28
+    echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html
     EOF
 
   }
