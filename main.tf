@@ -1,7 +1,7 @@
 # Configure the Google Cloud provider
 provider "google" {
   project = "sivaram-dev"
-  credentials = file("sivaram-dev-382816-1c92515dc73e.json")
+  credentials = file("/home/siva/Desktop/GCE-VM-DEMO/sivaram-dev.json")
   region  = "us-east1-b"
 }
 
