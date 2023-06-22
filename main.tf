@@ -16,7 +16,19 @@ resource "google_compute_instance" "terraform-gce" {
       image = "debian-cloud/debian-9"
     }
   }
-  
+
+  metadata {
+    startup_script= <<EOF
+    sudo su 
+    apt update 
+    apt -y install apache2 
+    sudo service apache2 start 
+    sudo update-rc.d apache2 enable
+    echo "Hello World" > /var/www/html/index.html
+    echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html28
+    EOF
+
+  }
   network_interface {
     network = "default"
 
