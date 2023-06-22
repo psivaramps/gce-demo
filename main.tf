@@ -1,6 +1,6 @@
 # Configure the Google Cloud provider
 provider "google" {
-  project = "mytraining-gcptech "
+  project = "sivaram-dev"
   region  = "us-east1-b"
 }
 
