@@ -1,6 +1,6 @@
 # Configure the Google Cloud provider
 provider "google" {
-  project = "sivaram-dev-382816"
+  project = "terraform-jenkins-390617"
   credentials = file("jenkins.json")
   region  = "us-east1-b"
 }
