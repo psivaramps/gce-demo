@@ -4,12 +4,16 @@ environment {
     SVC_ACCOUNT_KEY = credentials('dev-auth')
   }
     stages {
-        stage ('checkout'){
+        
+      stage('Set creds') {
             steps {
-                git branch: 'main', url: 'hhttps://github.com/psivaramps/gce-demo.git'
+              
+                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./jenkins.json'
+		            sh 'pwd'
+                       
+               
             }
         }
-      
 		stage('Set Terraform path') {
             steps {
                 script {
@@ -22,8 +26,6 @@ environment {
         
          stage('Provision infrastructure') {
             steps {
-                dir("terraform-gce") 
-                {
                 sh 'terraform init'
                 sh 'terraform plan'
                 sh 'terraform apply -auto-approve'
