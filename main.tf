@@ -17,8 +17,7 @@ resource "google_compute_instance" "terraform-gce" {
     }
   }
 
-  metadata {
-    startup_script= <<EOF
+  metadata_startup_script= <<EOF
     sudo su 
     apt update 
     apt -y install apache2 
@@ -28,8 +27,7 @@ resource "google_compute_instance" "terraform-gce" {
     echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html
     EOF
 
-  }
-  network_interface {
+    network_interface {
     network = "default"
 
     access_config {
