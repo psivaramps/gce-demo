@@ -8,7 +8,7 @@ environment {
       stage('Set creds') {
             steps {
               
-                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./terraform.json'
+                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./terraform-dev.json'
 		            sh 'pwd'
                        
                
