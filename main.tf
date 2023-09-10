@@ -18,7 +18,19 @@ resource "google_compute_instance" "terraform-gce" {
     }
   }
 
-  metadata_startup_script= file("startup.sh)
+  # metadata_startup_script= file("startup.sh)
+  metadata = {
+    startup-script = <<-EOF1
+      #! /bin/bash
+      apt update
+      set -euo pipefail
+      export DEBIAN_FRONTEND=noninteractive
+      apt -y install apache2
+      cat <<EOF > /var/www/html/index.html
+      <html><body><h1>Welcome to MI Institute...!</h1></body></html>
+      EOF
+      EOF1
+  }
 
     network_interface {
     network = "vpc-automode"
