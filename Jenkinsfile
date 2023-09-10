@@ -1,8 +1,8 @@
 pipeline {
     agent any
-environment {
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
-  }
+	environment {
+    	SVC_ACCOUNT_KEY = credentials('terraform_auth')
+ 	 }
     stages {
         
       stage('Set creds') {
@@ -10,11 +10,9 @@ environment {
               
                 sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./terraform-dev.json'
 		            sh 'pwd'
-                       
-               
-            }
+               }
         }
-		stage('Set Terraform path') {
+	stage('Set Terraform path') {
             steps {
                 script {
                     def tfHome = tool name: 'Terraform'
