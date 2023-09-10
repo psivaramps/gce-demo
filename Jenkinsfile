@@ -1,14 +1,14 @@
 pipeline {
     agent any
 environment {
-    SVC_ACCOUNT_KEY = credentials('dev-auth')
+    SVC_ACCOUNT_KEY = credentials('terraform-auth')
   }
     stages {
         
       stage('Set creds') {
             steps {
               
-                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./jenkins.json'
+                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./terraform.json'
 		            sh 'pwd'
                        
                
