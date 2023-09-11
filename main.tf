@@ -1,15 +1,15 @@
 # Configure the Google Cloud provider
 provider "google" {
-  project = "envmnt-dev"
+  project = "envmnt-prod"
   credentials = file("terraform-dev.json")
-  region  = "us-east1-b"
+  region  = "us-central1"
 }
 
 # Create a Google Compute instance
 resource "google_compute_instance" "terraform-gce" {
   name          = "gce-vm-jenkins"
   machine_type  = "e2-small"
-  zone          = "us-east1-b"
+  zone          = "us-central-b"
   tags = ["prod"]
   
   boot_disk {
@@ -33,7 +33,7 @@ resource "google_compute_instance" "terraform-gce" {
   }
 
     network_interface {
-    network = "vpc-automode"
+    network = "default"
 
     access_config {
       // Ephemeral IP
